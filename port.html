@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Portfolio - Mk Praneush</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .top-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .profile-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    .profile-image {
+      flex: 0 0 auto;
+      margin-left: 20px;
+    }
+    .profile-image img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #333;
+    }
+  </style>
 </head>
 <body>
 
@@ -12,8 +35,15 @@
 <div id="background"></div>
 
 <header>
-  <h1>Mk Praneush</h1>
-  <p>Web Developer | Designer | Aspiring Data Scientist</p>
+  <div class="top-container">
+    <div class="profile-text">
+      <h1>Mk Praneush</h1>
+      <p>Web Developer | Designer | Aspiring Data Scientist</p>
+    </div>
+    <div class="profile-image">
+      <img src="your-photo.jpg" alt="Mk Praneush" />
+    </div>
+  </div>
 </header>
 
 <main>
@@ -29,6 +59,7 @@
       <li><strong>Email:</strong> <a href="mailto:mkpraneush3.14@gmail.com">mkpraneush3.14@gmail.com</a></li>
       <li><strong>Phone:</strong> 637915699</li>
       <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mk-praneush-34bb43290" target="_blank">View Profile</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/mkpraneush" target="_blank">View Projects</a></li>
     </ul>
   </section>
 
@@ -54,29 +85,6 @@
     <ul>
       <li>Data Science</li>
       <li>Designing</li>
-    </ul>
-  </section>
-
-  <section id="courses">
-    <h2>Courses Completed</h2>
-    <ul>
-      <li>Elite Certificate in “Joy of Computing using Python” - NPTEL</li>
-      <li>Basics of Python - Infosys Springboard</li>
-      <li>Introduction to Python - Infosys Springboard</li>
-      <li>Introduction to Artificial Intelligence - Infosys Springboard</li>
-      <li>Introduction to Natural Language Processing - Infosys Springboard</li>
-      <li>Introduction to Deep Learning - Infosys Springboard</li>
-    </ul>
-  </section>
-
-  <section id="activities">
-    <h2>Co-Curricular Activities</h2>
-    <ul>
-      <li>Attended workshop on “Rapid development with No Code/Low Code platforms” at Kongu Engineering College</li>
-      <li>Presented “Multi Modal AI System for Autonomous Diagnosis” at Dr. N.G.P. Institute of Technology</li>
-      <li>Attended workshop on "GitHub" at the National level event BIT V-PRAYUKTI’25 at Bannari Amman Institute of Technology</li>
-      <li>Attended workshop on "Augmented Reality Applications Using Unity Game Engine" at Kongu Engineering College</li>
-      <li>Participated in awareness program titled "Fire Presentation Strategy and Techniques" at Velalar College of Engineering and Technology</li>
     </ul>
   </section>
 
