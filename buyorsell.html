@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classifieds - Buy & Sell</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f4f8;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #0077b6;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px;
+      }
+      .form-section,
+      .listings-section {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+      }
+      .form-section {
+        flex: 1 1 300px;
+        max-width: 400px;
+      }
+      .listings-section {
+        flex: 2 1 500px;
+        max-width: 700px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      button {
+        background: #0077b6;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+      }
+      button:hover {
+        background: #0096c7;
+      }
+      .listing {
+        border-bottom: 1px solid #ddd;
+        padding: 12px 0;
+      }
+      .listing:last-child {
+        border-bottom: none;
+      }
+      .listing h3 {
+        margin: 0 0 5px 0;
+        color: #0077b6;
+      }
+      .listing p {
+        margin: 5px 0;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Classifieds - Buy & Sell Used Products</h1>
+    </header>
+    <div class="container">
+      <div class="form-section">
+        <h2>Post Your Product</h2>
+        <input type="text" id="productName" placeholder="Product Name" />
+        <textarea id="productDesc" placeholder="Product Description"></textarea>
+        <input type="number" id="productPrice" placeholder="Price in ₹" />
+        <input type="text" id="sellerName" placeholder="Your Name" />
+        <button onclick="addListing()">Post Product</button>
+      </div>
+      <div class="listings-section">
+        <h2>Available Products</h2>
+        <div id="listings"></div>
+      </div>
+    </div>
+    <script>
+      let products = [];
+      function addListing() {
+        const name = document.getElementById("productName").value;
+        const desc = document.getElementById("productDesc").value;
+        const price = document.getElementById("productPrice").value;
+        const seller = document.getElementById("sellerName").value;
+        if (name && desc && price && seller) {
+          products.push({ name, desc, price, seller });
+          displayListings();
+          document.getElementById("productName").value = "";
+          document.getElementById("productDesc").value = "";
+          document.getElementById("productPrice").value = "";
+          document.getElementById("sellerName").value = "";
+        } else {
+          alert("Please fill all fields");
+        }
+      }
+      function displayListings() {
+        const listingsDiv = document.getElementById("listings");
+        listingsDiv.innerHTML = "";
+        products.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.className = "listing";
+          div.innerHTML = `<h3>${item.name} - ₹${item.price}</h3>
+                         <p>${item.desc}</p>
+                         <p>Seller: ${item.seller}</p>
+                         <button onclick="removeListing(${index})">Remove</button>`;
+          listingsDiv.appendChild(div);
+        });
+      }
+      function removeListing(index) {
+        products.splice(index, 1);
+        displayListings();
+      }
+    </script>
+  </body>
+</html>
